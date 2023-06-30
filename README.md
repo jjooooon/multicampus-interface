@@ -68,5 +68,5 @@
 
 - <B>PPT</B>
 
-  - [The big day.pptx](https://github.com/dlaghwls1104/the_Big_day/files/9092222/The.big.day.pptx)
+  - [The big day.pptx](https://github.com/jjooooon/multicampus-interface/blob/main/The.big.day.pptx)
 
