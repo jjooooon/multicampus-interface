@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="container">
+
+ <div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h6 class="border-bottom pb-2 mb-0">LV 1(초급자용)</h6>
+    {% if list %}
+    {% for problem in list %}
+     {% if algorithm in problem.subject  %}
+     {% if "Lv1" in problem.subject  %}
+    <div class="d-flex text-muted pt-3">
+      <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+        <div class="d-flex justify-content-between">
+          <strong class="text-gray-dark"><a href="{{problem.url}}">{{ problem.subject }} </a></strong>
+          <a href="{{problem.url}}">문제풀러가기</a>
+        </div>
+      </div>
+    </div>
+     {% endif %}
+     {% endif %}
+    {% endfor %}
+    {% endif %}
+
+
+  </div>
+
+
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h6 class="border-bottom pb-2 mb-0">LV 2(중급자 용)</h6>
+    {% if list %}
+    {% for problem in list %}
+      {% if algorithm in problem.subject  %}
+    {% if "Lv2" in problem.subject  %}
+    <div class="d-flex text-muted pt-3">
+      <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+        <div class="d-flex justify-content-between">
+          <strong class="text-gray-dark"><a href="{{problem.url}}">{{ problem.subject }}</a></strong>
+          <a href="{{problem.url}}">문제풀러가기</a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+  </div>
+
+   <div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h6 class="border-bottom pb-2 mb-0">LV 3(고급자 용)</h6>
+    {% if list %}
+    {% for problem in list %}
+      {% if algorithm in problem.subject  %}
+    {% if "Lv3" in problem.subject  %}
+    <div class="d-flex text-muted pt-3">
+      <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+        <div class="d-flex justify-content-between">
+          <strong class="text-gray-dark"><a href="{{problem.url}}">{{ problem.subject }}</a></strong>
+          <a href="{{problem.url}}">문제풀러가기</a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+  </div>
+</main>
+{% endblock %}
+
+

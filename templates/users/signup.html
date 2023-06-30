@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-3">
+    <div class="card" style="width: 25rem; ">
+        <div class="card-body">
+            <div class="row">
+        <div class="col-6">
+            <h4>회원가입</h4>
+        </div>
+        <div class="col-6 text-right">
+            <span>또는 <a href="{% url 'users:login' %}">로그인 하세요.</a></span>
+        </div>
+    </div>
+    <form method="post" action="{% url 'users:signup' %}">
+    {% csrf_token %}
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">사용자이름 : {{form.first_name}}</li>
+        <li class="list-group-item">이메일주소 : {{form.email}}</li>
+        <li class="list-group-item">전 화 번 호 : {{form.hp}}</li>
+        <li class="list-group-item">비 밀 번 호 : {{form.password}}</li>
+        <li class="list-group-item">비밀번호확인 : {{form.password1}}</li>
+     </ul>
+     <hr>
+    <button type="submit" class="btn btn-primary">제출하기</button>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

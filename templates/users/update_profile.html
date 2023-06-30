@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-3">
+    <div class="card" style="width: 25rem; ">
+        <div class="card-body">
+            <div class="row">
+        <div class="col-8">
+            <h4>사용자 프로필 수정</h4>
+        </div>
+    </div>
+    <form method="post" class="post-form" action="{% url 'users:update' %}">
+    {% csrf_token %}
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">사용자이름 : {{form.first_name}}</li>
+        <li class="list-group-item">프로필사진 : {{form.avatar}}</li>
+        <li class="list-group-item">전 화 번 호 : {{form.hp}}</li>
+        <li class="list-group-item">
+            <label for="date_start">생 년 월 일 : </label>
+            <input type="date" id="birthdate" name="birthdate">
+        </li>
+        <li class="list-group-item">수 강 과 정 : {{form.takencourse}}</li>
+     </ul>
+     <hr>
+     <button type="submit" class="btn btn-primary">적용하기</button>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

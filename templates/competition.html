@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">공모전</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">지금 참여할수있는 공모전을 확인하시고 팀원을 구해보세요!</p>
+                    <br>사진을 클릭하면 공모전 홈페이지로 갈수있어요!</br>
+                </div>
+            </div>
+        </header>
+        <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <a href="https://www.gangseo.seoul.kr/gs040101/279497?srchCtgry=&srchStdg=&fieldTy=&curPage=&srchKey=&srchText=&srchBeginDt=&srchEndDt=">
+                            <img class="card-img-top" src="/static/img/bigdata.jpg" alt="..." style="height: 350px;">
+                            </a>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">2022년 강서구 빅데이터 활용 공모전</h5>
+                                    <!-- Product price-->
+                                    2022-02-24 ~ 2022-03-25
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'group:index' %}">함께할 팀원 구하기</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <a href="https://bigdata.seoul.go.kr/noti/selectNoti.do?r_id=P710&bbs_seq=527&sch_type=&sch_text=&currentPage">
+                            <img class="card-img-top" src="/static/img/bigdata2.png" alt="..." style="height: 350px;">
+                            </a>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">2022년 빅데이터캠퍼스 멘토링 멘티 모집</h5>
+                                    <!-- Product price-->
+                                    2022-3-3 ~ 2022-03-23
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'group:index' %}">함께할 팀원 구하기</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">BigDay 2022</p></div>
+        </footer>
+{% endblock %}

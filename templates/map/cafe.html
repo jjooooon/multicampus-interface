@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>테이블 태그</title>
+    </head>
+    <body>
+        <table border="1">
+            <caption>표제목</caption>
+            <tr>
+                <th>이름</th>
+                <th>가는방법</th>
+                <th>홈페이지</th>
+            </tr>
+            {% if cafe %}
+            {% for i in cafe %}
+            <tr>
+                <td>{{ i.name }}</td>
+                <td><a href="{{i.kakaourl}}">{{ i.kakaourl }}</a></td>
+                <td><a href="{{i.pageurl}}">{{ i.pageurl }}</a></td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </table>
+    <a href="/map/create/">카페 등록하기</a>
+    </body>
+</html>

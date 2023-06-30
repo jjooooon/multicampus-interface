@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block page_title %}
+    {{user_obj.first_name}}'s Profile
+{% endblock %}
+{% block content %}
+<div class = "container mb-3">
+    <h4>Dashboard</h4>
+    <div class="card d-flex justify-content-center" style="width: 30rem;">
+        <div class="card-body">
+            <div class="flex flex-col items-center md:items-start md:flex-row">
+                <div class="text-center">
+                    <img src="/static/img/1_programing.png" class="img-thumbnail rounded"></div>
+                <div class="md:ml-10 w-full">
+                    <div class="mb-2 md:mb-4">
+                    <span class="text-xs text-gray-500 -mb-1 block">Name</span>
+                    <h3 class="font-medium text-3xl leading-8">{{user_obj.first_name}}</h3></div>
+                    {% if user == user_obj %}
+                    <span class="text-xs text-gray-500 -mb-1 block">Phone</span>
+                    <h3 class="font-medium text-3xl leading-8">{{user_obj.hp}}</h3></div>
+                    {% endif %}
+                    <span class="text-xs text-gray-500 -mb-1 block">Course</span>
+                    <h3 class="font-medium text-3xl leading-8">{{ user_obj.takencourse}}</h3>
+                    {% if user == user_obj %}
+                        <a href="{% url 'users:update' %}" class="btn btn-primary">회원 수정</a>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="width: 30rem;">
+            <div class="card-body">
+            <div class="flex flex-col items-center md:items-start md:flex-row">
+                <h3>{{ user_obj.first_name}}님이 쓴 글</h3>
+                    {% for obj_qna in user_obj.question.all %}
+                    <a href="{% url 'qnaboard:detail' obj_qna.id %}"> {{ obj_qna }}</a> <br>
+                    {% endfor %}
+                <hr>
+                <h3>{{ user_obj.first_name}}님이 참여중인 챌린지</h3>
+                    {% for obj in user_obj.challenge.all %}
+                    {% if user_obj.challenge.challenger %}
+                        <a> challenges </a>
+                    {% endif %}
+                    <a href="{% url 'challenges:detail' obj.id %}"> {{user_obj.challenge.challenger}}{{ obj }} {{obj.created}}</a> <br>
+                    {% endfor %}
+            </div>
+        </div>
+        </div>
+</div>
+{% endblock %}
+{% block script %}
+{% endblock %}

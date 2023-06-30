@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class = "container mb-3">
+    <div class="card" style="width: 18rem;">
+        <img src="static/img/1_programing.jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">커뮤니티 활동 랭킹 1위~5위</h5>
+          <p class="card-text">
+            {% if rankers %}
+            {% for ranker in rankers %}
+                <p>{{ranker.first_name}}님 {{ranker.score}} 점</p>
+            {% endfor %}
+            {% endif %}
+          </p>
+          <hr>
+          <p>내 점수 : {{user.score}} 점 </p>
+          <a href="{% url 'users:detail' user.id %}" class="btn btn-primary">내 프로필 보기</a>
+        </div>
+      </div>
+    
+</div>
+{% endblock %}
+{% block script %}
+{% endblock %}

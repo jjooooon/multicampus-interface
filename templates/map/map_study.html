@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block content %}
+        <!-- Page content-->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1">멀티캠퍼스 인근 정보 지도</h1>
+                            <!-- Post meta content-->
+                        <p>
+                        <button onclick="location.href='/map/';">맛집 보기</button>
+                        <button onclick="location.href='/map/map_notebook/';">노트북 대여장소보기</button>
+                        </p>
+                        </header>
+                        <!-- Preview image figure-->
+                        <div id="map" style="width:700px;height:400px;"></div>
+
+                    </article>
+                    <!-- Comments section-->
+                </div>
+                <!-- Side widgets-->
+                <div class="col-lg-4" >
+                </div>
+
+                <div class="col-lg-10">
+                <table class="table caption-top">
+                      <caption>멀티캠퍼스 인근 장소</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">이름</th>
+                          <th scope="col">길찾기</th>
+                          <th scope="col">후기 및 홈페이지</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                      {% if map %}
+                        {% for i in map %}
+                        {% if i.category == "Cafe" %}
+                        <tr>
+                            <td>{{ i.name }}</td>
+                            <td><a href="{{ i.kakaourl }}">{{ i.name }} / 길찾기</a>
+                            <td><a href="{{ i.pageurl }}">{{ i.pageurl }}</a>
+                        </tr>
+                      {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                      </tbody>
+                    </table>
+        <br><a href="/map/create/">내가 아는 장소 등록하기</a></br>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=31663da9e691b57f90cf538c61507789"></script>
+        <script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+		    mapOption = {
+		        center: new kakao.maps.LatLng(37.5096357, 127.0555218), // 지도의 중심좌표
+		        level: 5, // 지도의 확대 레벨
+		        mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
+		    };
+
+		// 지도를 생성한다
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+
+		var data = [
+		    [37.51267020738629, 127.05299553229713,'<div style="padding:5px;">작심스터디카페 삼성중앙역점</div>'],
+		    [37.506940024159434, 127.05802305310844,'<div style="padding:5px;">투썸플레이스 포스코사거리점</div>'],
+		    [37.49816004469833, 127.05283887688229,'<div style="padding:5px;">집중소 대치1하임독서실</div>'],
+		    [37.510076378610464, 127.0553396413183,'<div style="padding:5px;">잭팟 코워킹스페이스</div>'],
+		    [37.50599993470491, 127.05610981818084,'<div style="padding:5px;">테라로사 포스코센터점</div>'],
+
+		];
+
+        for (var i=0; i < data.length; i++) {
+        // 지도에 마커를 생성하고 표시한다
+		var marker = new kakao.maps.Marker({
+		    position: new kakao.maps.LatLng(data[i][0], data[i][1]), // 마커의 좌표
+		    map: map // 마커를 표시할 지도 객체
+		});
+        // 인포윈도우를 생성합니다
+        var infowindow = new kakao.maps.InfoWindow({
+            content : data[i][2]
+
+        });
+
+        // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+        infowindow.open(map, marker);
+
+
+      }
+
+	</script>
+{% endblock %}

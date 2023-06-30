@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>테이블 태그</title>
+    </head>
+    <body>
+    <div>
+        <h5 >질문등록</h5>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">저장하기</button>
+        </form>
+    </div>
+    </body>
+</html>
