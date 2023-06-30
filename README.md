@@ -17,12 +17,12 @@
 - 👮<B>팀 구성 및 역할</B>
 
   <B>:man: 이준영</B>
+  - 웹페이지 기능 구현
   - 지도API 정보 수집
-  
+  - 프론트,백엔드 구성성
   
   <B>:man: 임호진</B>
   - 데이터 수집
-  - 웹페이지 기능 구현
   - 게시판 만들기
     
   
@@ -68,5 +68,5 @@
 
 - <B>PPT</B>
 
-  - [The big day.pptx](https://github.com/dlaghwls1104/the_Big_day/files/9092222/The.big.day.pptx)
+  - [The big day.pptx](https://github.com/jjooooon/multicampus-interface/blob/main/The.big.day.pptx)
 
